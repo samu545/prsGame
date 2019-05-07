@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) SAM - All Rights Reserved.
+    Proprietary and confidential.
+
+-->
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="log-path">logs</Property>
+		<Property name="archive">${log-path}/archive</Property>
+		<property name="name">server</property>
+		<property name="pattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console-Appender" target="SYSTEM_OUT">
+			<PatternLayout>
+				<pattern>
+					${pattern}
+				</pattern>
+			</PatternLayout>
+		</Console>
+		<File name="File-Appender" fileName="${log-path}/${name}.log">
+			<PatternLayout>
+				<pattern>${pattern}</pattern>
+			</PatternLayout>
+		</File>
+		<RollingFile name="RollingFile" fileName="${log-path}/app-${name}.log"
+				 filePattern="${archive}/$${date:yyyy-MM}/${name}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<pattern>${pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<!-- Rotated everyday -->
+				<TimeBasedTriggeringPolicy />
+				<!-- Or every 100 MB -->
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="com.prs.game" level="trace">
+			<AppenderRef ref="RollingFile" level="trace" />
+		</Logger>
+		<Root level="info">
+			<AppenderRef ref="Console-Appender" level="info"/>
+		</Root>
+	</Loggers>
+</Configuration>

@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+.section{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.section * {
+    padding: 20px;
+}
+
+.section td tr {
+	text-align: center;
+}
+
+.section div.panel-primary {
+	width: 680px;
+	text-align: center;
+}

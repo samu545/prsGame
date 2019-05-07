@@ -1,0 +1,28 @@
+<!--
+
+    Copyright (C) SAM - All Rights Reserved.
+    Proprietary and confidential.
+
+-->
+<div class="section">
+    <div class="panel panel-primary">
+        <div class="panel-heading">{{headingTitle}}</div>
+        <div class="panel-heading">Game is played {{rounds}} times</div>
+        <div class="alert alert-danger" ng-show="error">{{error}}</div>
+        <div class="label"><span class="badge badge-success">Win: {{win}}</span></div>
+        <div class="label"><span class="badge badge-danger">Loose: {{loose}}</span></div>
+        <div class="label"><span class="badge">Draw: {{draw}}</span></div>
+        <table>
+	        <tr><th>Player throw</th><th>Player Result</th><th>Computer throw</th></tr>
+	        <tr><td>{{playerThrow}}</td><td>{{playerResult}}</td><td>{{computerThrow}}</td></tr>
+	        <tr>
+		        <td><button type="button" class="btn btn-primary" ng-click="playerMove(throws.paper)">
+                    <img ng-src="../img/paper.png"/></button></td>
+		        <td><button type="button" class="btn btn-success" ng-click="playerMove(throws.rock)">
+                    <img ng-src="../img/rock.png"/></button></td>
+		        <td><button type="button" class="btn btn-info" ng-click="playerMove(throws.scissors)">
+                    <img ng-src="../img/scissor.png" /></button></td>
+	        </tr>
+        </table>
+    </div>
+</div>
