@@ -1,5 +1,6 @@
 **ROCK PAPER SCISSOR GAME**
 
+Notes :
 
 
 <img src="https://media.giphy.com/media/rfp9Znzj0NyWk/giphy.gif">
